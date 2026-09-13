@@ -23,22 +23,40 @@ app.get('/files/:filename',function(req,res){
       res.render("show", {filename:req.params.filename,  filedata:filedata});
     });
 })
-    app.get('/edits/:filenames',function(req,res){
-        res.render("edits",{filenames:req.params.filenames} );
-    });
-    app.post('/edit',function(req,res){
-        fs.writeFile(`./files/${req.body.previouss}`,`./files/${req.body.news}`,function(err){
-            res.redirect("/");
+
+
+
+    app.get('/editcontent/:filename',function(req,res){
+        fs.readFile(`./files/${req.params.filename}`, 'utf-8',function(err,filedata){
+            res.render('contentedit',{filename:req.params.filename,editcontent:filedata })
         })
+
+    });
+
+    app.get('/ptana/:filename',function(req,res){
+        fs.unlink(`./files/${req.params.filename}`,function(err){
+          res.redirect("/");
+            })
+    })
+
+
+    app.post('/newedit/:filename',function(req,res){
+        fs.writeFile(`./files/${req.params.filename}`,`${req.body.news}`,function(err){
+            res.redirect("/");
+        });
      })
+    
+
+
+
  app.post('/edit',function(req,res){
     fs.rename(`./files/${req.body.previous}`,`./files/${req.body.new}`,function(err){
         res.redirect("/");
-    })
+    });
  })
  app.post('/create',function(req,res){
 
-fs.writeFile(`./files/${req.body.tittle.split(' ').join('')}.txt`,req.body.details,function(err){
+fs.writeFile(`./files/${req.body.tittle.split(' ').join('')}`,req.body.details,function(err){
 res.redirect("/")
 });
 

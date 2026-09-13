@@ -8,14 +8,14 @@
 </head>
 <body>
     <div class="main w-full min-h-screen bg-zinc-900 text-white py-4 px-2">
-        <form action="/edit" method="post">
+        <form action="/newedit/<%= filename%>" method="post">
             <a class="text-blue-500 px-3" href="/">Go to home</a>
             <div class="mt-5">
-            <input class="text-white block px-5 py-2 bg-zinc-800 w-70 rounded-md outline-none  " type="text" placeholder="Previous content" name="previouss" value="" >
-            <input class=" block text-white px-5 py-2 bg-zinc-800 resize-none w-70 rounded-md outline-none mt-3" type="text" placeholder="New content" name="news" value="<%=filenames%>">
+            <textarea class="text-white block px-5 py-2 bg-zinc-800 w-70 rounded-md outline-none  " type="text" placeholder="" name="content"> <%= editcontent %></textarea>
+            <textarea class=" block text-white px-5 py-2 bg-zinc-800 resize-none w-70 rounded-md outline-none mt-3" type="text" placeholder="New content" name="news"></textarea>
             </div>
             <!-- <input class="bg-white" type="submit" value="create task"> -->
-            <button class="bg-yellow-600 px-5 py-2 rounded-md mt-3 ">Update</button>
+            <button class="bg-yellow-600 px-5 py-2 rounded-md mt-3 ">Update kro</button>
         </form>
         </div>
 </body>

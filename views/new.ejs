@@ -19,18 +19,22 @@
             <% if(files.length>0){ %>
                 <% files.forEach(function(val){ %>
                     <div class="task w-72  px-3 py-4 bg-zinc-800 rounded-md ">
-                        <h1 class="text-white tracking-tight text-3xl"><%=val %></h1>
-                        <div class="justify-between ">
-                        <a class="text-blue-500 inline-block mt-3" href="/files/<%= val %>">Read More</a>
-            
-                        <a class="text-green-600 ml-38" href="/edit/<%= val %>">Edit</a>
+                      
+                 <h1 class="text-white tracking-tight text-3xl"><%=val %></h1>
+                 <div class="justify-between ">
+                 <a class="text-blue-500 inline-block mt-3" href="/files/<%= val %>">Read More</a>
+                  
+                 <a class="text-red-600 ml-30  " href="/ptana/<%= val%>">delete</a>          
+                <a class="text-green-600 ml-55" href="/edit/<%= val %>">Edit</a>
                         
-                        <a class="text-green-600 ml-38" href="/edit/<%= val %>">Content Edit</a>
-                        </div>
+                <a class="text-green-600 ml-42" href="/editcontent/<%= val %>">Content Edit</a>
+                    
+                    
+                 </div>
                        </div>
                     <%  }) %>
            <% } else{ %>
-            <h1 class="text-white">No task yet.</h1>
+            <h1 class="text-red-600">No task yet.</h1>
           <% } %>
           
     
